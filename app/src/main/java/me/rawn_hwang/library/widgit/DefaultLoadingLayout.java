@@ -209,6 +209,19 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
         btnErrorHandle.setVisibility(View.GONE);
     }
 
+    public void replaceErrorButton(Button newButton) {
+        if (btnErrorHandle == null)
+            btnErrorHandle = (Button) mErrorView.findViewById(R.id.btn_error);
+
+        ((RelativeLayout) mErrorView).removeView(btnErrorHandle);
+        btnErrorHandle = newButton;
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        lp.addRule(RelativeLayout.BELOW,R.id.tv_error_message);
+        ((RelativeLayout) mErrorView).addView(btnErrorHandle, lp);
+    }
+
     public void replaceErrorIcon(Drawable newIcon) {
         if (tvErrorDescription == null)
             tvErrorDescription = (TextView) mErrorView.findViewById(R.id.tv_error_message);
@@ -226,7 +239,6 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
         newIcon.setBounds(0, 0, newIcon.getMinimumWidth(), newIcon.getMinimumHeight());
         tvErrorDescription.setCompoundDrawables(null, newIcon, null, null);
     }
-
 
     @Override
     public void onLoading() {

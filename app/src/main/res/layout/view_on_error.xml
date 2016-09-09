@@ -8,8 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:drawableTop="@drawable/ic_error"
-        android:text="@string/error_description" />
+        android:drawableTop="@drawable/smart_error"
+        android:text="@string/error_description"
+        android:textColor="@color/uiPrimaryColor"
+        android:textSize="@dimen/text_size" />
 
     <Button
         android:id="@+id/btn_error"
@@ -17,5 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_error_message"
         android:layout_centerHorizontal="true"
-        android:text="@string/error_btn_title" />
+        android:text="@string/error_btn_title"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/text_size"
+        android:background="@drawable/bg_error_btn"/>
 </RelativeLayout>

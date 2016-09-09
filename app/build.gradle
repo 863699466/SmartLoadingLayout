@@ -5,7 +5,7 @@ publish {
     userOrg = 'rawnhwang'
     groupId = 'me.rawnhwang.library'
     artifactId = 'smart-loading-layout'
-    publishVersion = '1.2.1'
+    publishVersion = '1.2.2'
     repoName = 'RawnHwangAndroid'
     desc = 'simplify the loading view with status change..'
     website = 'https://github.com/RawnHwang/SmartLoadingLayout'

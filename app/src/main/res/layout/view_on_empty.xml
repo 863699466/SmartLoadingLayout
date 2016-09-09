@@ -7,8 +7,10 @@
         android:id="@+id/tv_empty_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_empty"
+        android:drawableTop="@drawable/smart_empty"
         android:layout_centerInParent="true"
-        android:text="@string/empty_description" />
+        android:text="@string/empty_description"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/uiPrimaryColor"/>
 
 </RelativeLayout>
