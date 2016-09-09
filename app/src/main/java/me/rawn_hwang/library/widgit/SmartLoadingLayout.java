@@ -3,51 +3,33 @@ package me.rawn_hwang.library.widgit;
 import android.app.Activity;
 import android.view.View;
 
-public class SmartLoadingLayout {
-    private View mLoadingView;
-    private View mContentView;
-    private View mEmptyView;
-    private View mErrorView;
-    private Activity mHostActivity;
+public abstract class SmartLoadingLayout {
 
-
-    public SmartLoadingLayout(Activity activity) {
-        mHostActivity = activity;
+    public static CustomLoadingLayout createCustomLayout(Activity hostActivity) {
+        return new CustomLoadingLayout(hostActivity);
     }
 
-    public void setLoadingView(int viewID) {
-        mLoadingView = mHostActivity.findViewById(viewID);
+    public static DefaultLoadingLayout createDefaultLayout(Activity hostActivity, View contentView) {
+        return new DefaultLoadingLayout(hostActivity, contentView);
     }
 
-    public void setContentView(int viewID) {
-        mContentView = mHostActivity.findViewById(viewID);
-    }
+    protected View mLoadingView;
+    protected View mContentView;
+    protected View mEmptyView;
+    protected View mErrorView;
+    protected boolean mLoadingAdded;
+    protected boolean mEmptyAdded;
+    protected boolean mErrorAdded;
 
-    public void setEmptyView(int viewID) {
-        mEmptyView = mHostActivity.findViewById(viewID);
-    }
+    public abstract void onLoading();
 
-    public void setErrorView(int viewID) {
-        mErrorView = mHostActivity.findViewById(viewID);
-    }
+    public abstract void onDone();
 
-    public void onLoading() {
-        showViewWithStatus(LayoutStatus.Loading);
-    }
+    public abstract void onEmpty();
 
-    public void onDone() {
-        showViewWithStatus(LayoutStatus.Done);
-    }
+    public abstract void onError();
 
-    public void onEmpty() {
-        showViewWithStatus(LayoutStatus.Empty);
-    }
-
-    public void onError() {
-        showViewWithStatus(LayoutStatus.Error);
-    }
-
-    private void showViewWithStatus(LayoutStatus status) {
+    protected void showViewWithStatus(LayoutStatus status) {
         switch (status) {
             case Loading:
                 if (mLoadingView == null) {
@@ -103,7 +85,7 @@ public class SmartLoadingLayout {
     }
 
 
-    private enum LayoutStatus {
+    protected enum LayoutStatus {
         Loading, Done, Empty, Error
     }
 }
