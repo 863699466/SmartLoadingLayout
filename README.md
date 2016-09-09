@@ -3,6 +3,20 @@
 
 ![](https://github.com/RawnHwang/SmartLoadingLayout/blob/master/screenshots/screenshot_01.gif)
 
+```
+repositories {
+  maven {
+   url  "http://dl.bintray.com/rawnhwang/RawnHwangAndroid"
+        }
+}
+```
+
+```
+dependencies {
+    compile 'me.rawnhwang.library:smart-loading-layout:1.2.2@aar'
+}
+```
+
 <b>Firtst of,get a SmartLoadingLayout(DefaultLoadingLayout/CustomLoadingLayout) object</b></br>
 <b>If we select DefaultLoadingLayout</b>
 ```
