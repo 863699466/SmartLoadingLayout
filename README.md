@@ -6,7 +6,7 @@
 <b>Firtst of,get a SmartLoadingLayout(DefaultLoadingLayout/CustomLoadingLayout) object</b></br>
 <b>If we select DefaultLoadingLayout</b>
 ```
-private SmartLoadingLayout mLayout;
+private DefaultLoadingLayout mLayout;
 //......
 ListView lvContent = (ListView) findViewById(R.id.lv_content);
 mLayout = SmartLoadingLayout.createDefaultLayout(this,lvContent); 
@@ -81,6 +81,10 @@ mLayout.onError();
 ```
 
 ```Java
+private CustomLoadingLayout mLayout;
+
+//.........
+
 mLayout = SmartLoadingLayout.createCustomLayout(this);
 mLayout.setContentView(R.id.lv_content);
 mLayout.setLoadingView(R.id.my_loading_page);
