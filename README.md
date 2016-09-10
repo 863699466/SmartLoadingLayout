@@ -4,17 +4,7 @@
 ![](https://github.com/RawnHwang/SmartLoadingLayout/blob/master/screenshots/screenshot_01.gif)
 
 ```
-repositories {
-  maven {
-   url  "http://dl.bintray.com/rawnhwang/RawnHwangAndroid"
-        }
-}
-```
-
-```
-dependencies {
-    compile 'me.rawnhwang.library:smart-loading-layout:1.2.2@aar'
-}
+    compile 'me.rawnhwang.library:app:1.2.4'
 ```
 
 <b>Firtst of,get a SmartLoadingLayout(DefaultLoadingLayout/CustomLoadingLayout) object</b></br>
