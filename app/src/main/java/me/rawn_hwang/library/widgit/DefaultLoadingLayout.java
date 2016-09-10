@@ -3,6 +3,7 @@ package me.rawn_hwang.library.widgit;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -240,6 +241,16 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
         tvErrorDescription.setCompoundDrawables(null, newIcon, null, null);
     }
 
+    public void setLayoutBackgroundColor(int color){
+        initAddedLayout();
+        rlAddedView.setBackgroundColor(color);
+    }
+
+    public void setLayoutBackground(int resID){
+        initAddedLayout();
+        rlAddedView.setBackgroundResource(resID);
+    }
+
     @Override
     public void onLoading() {
         checkContentView();
@@ -303,6 +314,7 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
             rlAddedView = new RelativeLayout(mContext);
             rlAddedView.setLayoutParams(mLayoutParams);
             ViewGroup parent = (ViewGroup) mContentView.getParent();
+            Log.e("worinimaleya",parent.getClass().getSimpleName());
             parent.addView(rlAddedView);
             mAnyAdded = true;
         }
