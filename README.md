@@ -4,7 +4,7 @@
 ![](https://github.com/RawnHwang/SmartLoadingLayout/blob/master/screenshots/screenshot_01.gif)
 
 ```
-    compile 'me.rawnhwang.library:app:1.2.4'
+    compile 'me.rawnhwang.library:app:1.2.5'
 ```
 
 <b>Firtst of,get a SmartLoadingLayout(DefaultLoadingLayout/CustomLoadingLayout) object</b></br>
