@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading_description"
-            android:textSize="@dimen/text_size"
+            android:textSize="@dimen/smartloadinglayout_text_size"
             android:textColor="#808080"/>
 
         <me.rawn_hwang.library.widgit.DotsTextView
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#808080"
-            android:textSize="@dimen/dots_text_size"
+            android:textSize="@dimen/smartloadinglayout_dots_text_size"
             dots:autoPlay="false"
             dots:period="1000" />
     </LinearLayout>

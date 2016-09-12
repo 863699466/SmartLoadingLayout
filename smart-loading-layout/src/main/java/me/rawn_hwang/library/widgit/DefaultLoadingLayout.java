@@ -3,7 +3,6 @@ package me.rawn_hwang.library.widgit;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import me.rawn_hwang.library.R;
+import me.rawn_hwang.library.utils.ScreenUtil;
 
 public class DefaultLoadingLayout extends SmartLoadingLayout {
     private LayoutInflater mInflater;
@@ -32,9 +32,9 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
         this.mContentView = contentView;
         this.mInflater = LayoutInflater.from(context);
         {
-            mLoadingView = mInflater.inflate(R.layout.view_on_loading, null);
-            mEmptyView = mInflater.inflate(R.layout.view_on_empty, null);
-            mErrorView = mInflater.inflate(R.layout.view_on_error, null);
+            mLoadingView = mInflater.inflate(R.layout.smartloadinglayout_view_on_loading, null);
+            mEmptyView = mInflater.inflate(R.layout.smartloadinglayout_view_on_empty, null);
+            mErrorView = mInflater.inflate(R.layout.smartloadinglayout_view_on_error, null);
             dtvLoading = (DotsTextView) mLoadingView.findViewById(R.id.dots);
             mLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
             mLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -220,6 +220,7 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
                 (RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         lp.addRule(RelativeLayout.CENTER_HORIZONTAL);
         lp.addRule(RelativeLayout.BELOW,R.id.tv_error_message);
+        lp.topMargin = ScreenUtil.dip2px(mContext,mContext.getResources().getDimension(R.dimen.smartloadinglayout_error_btn_margin));
         ((RelativeLayout) mErrorView).addView(btnErrorHandle, lp);
     }
 
@@ -314,7 +315,6 @@ public class DefaultLoadingLayout extends SmartLoadingLayout {
             rlAddedView = new RelativeLayout(mContext);
             rlAddedView.setLayoutParams(mLayoutParams);
             ViewGroup parent = (ViewGroup) mContentView.getParent();
-            Log.e("worinimaleya",parent.getClass().getSimpleName());
             parent.addView(rlAddedView);
             mAnyAdded = true;
         }
